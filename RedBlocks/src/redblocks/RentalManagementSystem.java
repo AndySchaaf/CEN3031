@@ -28,11 +28,10 @@ public class RentalManagementSystem {
         
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile, true));
-
+            bw.newLine();
             for(int i = 0; i < userInfo.length; i++) {
                 bw.write(userInfo[i]+",");
             }
-            bw.newLine();
             bw.close();
         } catch(Exception e) {
             return false;
