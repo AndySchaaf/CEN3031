@@ -16,7 +16,7 @@ import java.io.*;
  * @author andy
  */
 public class RentalManagementSystem {
-    private String csvFile = "C:\\Users\\andy\\Desktop\\CEN3031\\RedBlocks\\src\\redblocks\\users.csv";
+    private String csvFile = "src/users.csv";
     private boolean validUser;
     
     private BufferedReader br = null;
