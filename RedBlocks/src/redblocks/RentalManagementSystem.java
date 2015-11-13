@@ -5,11 +5,14 @@
  */
 package redblocks;
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,8 +20,10 @@ import java.io.*;
  */
 public class RentalManagementSystem {
     private String csvFile = "src/users.csv";
+    private String csvGame = "src/games.csv";
     private boolean validUser;
-    
+    private static String [] gameInfo = new String [1000];
+    public static List<VideoGame> games = new ArrayList<VideoGame>();  
     private BufferedReader br = null;
     public void read() {
 	
@@ -39,6 +44,45 @@ public class RentalManagementSystem {
         
         return true;
     }
+    
+    //games.csv to array
+    public void getGameInfo() {
+        
+        String line = "";
+	String cvsSplitBy = ",";
+
+       
+	try {
+            br = new BufferedReader(new FileReader(csvGame));
+            while ((line = br.readLine()) != null) {
+                // use comma as separator
+                gameInfo = line.split(cvsSplitBy);
+                 VideoGame game = new VideoGame(gameInfo); //Creates new VideoGame 
+                 games.add(game); //Fills ArrayList games with VideoGame objects
+                   
+         
+                
+            }
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	} finally {
+            if (br != null) {
+                    try {
+                            br.close();
+                    } catch (IOException e) {
+                            e.printStackTrace();
+                    }
+            }
+	}
+        
+           
+    }
+    
+    
+    
+    
     
     public String[] getUserInfo(String loggedInUserID) {
         String[] userInfo = null;
@@ -68,12 +112,15 @@ public class RentalManagementSystem {
                     }
             }
 	}
-        
+     
         return null;
     }
     
     public String logIn(String email, String password) {
         validUser = false;
+        getGameInfo(); //Creates array gameInfo from games.csv
+        int count = 0;
+        
         
         String line = "";
 	String cvsSplitBy = ",";
@@ -106,7 +153,10 @@ public class RentalManagementSystem {
                             e.printStackTrace();
                     }
             }
-	}
+	}   
+        
         return null;
     }
+    
+    
 }
