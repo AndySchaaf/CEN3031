@@ -14,10 +14,18 @@ public class VideoGame {
     private String platform;
     private String genre;
     private int inventory;
-    private String productID;
-    /*
-    Possibly put ratings here
-    */
+    private int productID;
+ 
+    public VideoGame(String [] gameInfo){
+        
+        this.title = gameInfo[0];
+        this.platform = gameInfo[1];
+        this.genre = gameInfo[2];
+//        this.inventory = Integer.parseInt(gameInfo[3]);
+    //    this.productID = Integer.parseInt(gameInfo[4]);
+        
+    }
+    
     
     public void setTitle(String title) {
         this.title = title;
@@ -40,7 +48,7 @@ public class VideoGame {
     public int getInventory() {
         return inventory;
     }
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 }
