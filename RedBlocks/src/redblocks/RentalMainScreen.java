@@ -5,6 +5,8 @@
  */
 package redblocks;
 
+import static redblocks.RentalManagementSystem.games;
+
 /**
  *
  * @author andy
@@ -19,6 +21,22 @@ public class RentalMainScreen extends javax.swing.JFrame {
         //Sets the "Welcome <name>" label
         this.workingUser = workingUser;
         CustomNameLabel.setText(workingUser.ProfileInfo().getFirstName());
+       
+                    
+                    //The Following adds the game info to the JTable
+                    //Looping still needs to be developed
+        
+                     jTable1.setValueAt(games.get(1).getTitle(),1,0);
+                     jTable1.setValueAt(games.get(1).getPlatform(),1,1);
+                     jTable1.setValueAt(games.get(1).getGenre(),1,2);
+                    
+                     jTable1.setValueAt(games.get(2).getTitle(),0,0);
+                     jTable1.setValueAt(games.get(2).getPlatform(),0,1);
+                     jTable1.setValueAt(games.get(2).getGenre(),0,2);
+                
+            
+       
+        
     }
 
     
