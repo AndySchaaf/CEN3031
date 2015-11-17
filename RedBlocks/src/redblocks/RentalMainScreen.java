@@ -22,17 +22,14 @@ public class RentalMainScreen extends javax.swing.JFrame {
         this.workingUser = workingUser;
         CustomNameLabel.setText(workingUser.ProfileInfo().getFirstName());
        
-                    
-                    //The Following adds the game info to the JTable
-                    //Looping still needs to be developed
-        
-                     jTable1.setValueAt(games.get(1).getTitle(),1,0);
-                     jTable1.setValueAt(games.get(1).getPlatform(),1,1);
-                     jTable1.setValueAt(games.get(1).getGenre(),1,2);
-                    
-                     jTable1.setValueAt(games.get(2).getTitle(),0,0);
-                     jTable1.setValueAt(games.get(2).getPlatform(),0,1);
-                     jTable1.setValueAt(games.get(2).getGenre(),0,2);
+                    //n represents the number of games in the csv file 
+                    int n =2;
+                    for(int i =0; i<n; i++){
+                            jTable1.setValueAt(games.get(i+1).getTitle(),i,0);
+                            jTable1.setValueAt(games.get(i+1).getPlatform(),i,1);
+                             jTable1.setValueAt(games.get(i+1).getGenre(),i,2);
+                        
+                    }  
                 
             
        
