@@ -5,6 +5,9 @@
  */
 package redblocks;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author andy
@@ -122,17 +125,23 @@ public class LogInScreen extends javax.swing.JFrame {
         //can get all of the user's info
         String loggedInUserID = system.logIn(email,password);
         //If the userID is null, log in was incorrect
-        if(loggedInUserID != null) {
-            //user ID is passed to getUserInfo, which returns all of the user's
-            //info in a string array
-            String[] userInfo = system.getUserInfo(loggedInUserID);
-            //string array is passed into user's constructor and a new user is created
-            loggedInUser = new User(userInfo);
-            //Once the user is created, a rental screen is created using the logged 
-            RentalMainScreen mainScreen = new RentalMainScreen(loggedInUser);
-            mainScreen.setVisible(true);
-        } else {
-            System.out.println("Invalid Login");
+        
+        try {
+	        if(loggedInUserID != null) {
+	            //user ID is passed to getUserInfo, which returns all of the user's
+	            //info in a string array
+	            String[] userInfo = system.getUserInfo(loggedInUserID);
+	            //string array is passed into user's constructor and a new user is created
+	            loggedInUser = new User(userInfo);
+	            //Once the user is created, a rental screen is created using the logged 
+	            RentalMainScreen mainScreen = new RentalMainScreen(loggedInUser);
+	            mainScreen.setVisible(true);
+	        } else {
+	        	System.out.println("Invalid Login");
+	        	throw new Exception();
+	        }
+        } catch (Exception e) {
+        	JOptionPane.showMessageDialog(new JFrame(),"Invalid Login");
         }
     }//GEN-LAST:event_LogInButtonActionPerformed
 
