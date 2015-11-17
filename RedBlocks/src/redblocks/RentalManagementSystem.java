@@ -19,8 +19,8 @@ import java.util.List;
  * @author andy
  */
 public class RentalManagementSystem {
-    private String csvFile = "src/users.csv";
-    private String csvGame = "src/games.csv";
+    private String csvFile = "RedBlocks/src/users.csv";
+    private String csvGame = "RedBlocks/src/games.csv";
     private boolean validUser;
     private static String [] gameInfo = new String [1000];
     public static List<VideoGame> games = new ArrayList<VideoGame>();  
