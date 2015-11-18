@@ -28,7 +28,7 @@ public class RentalManagementSystem {
     public void read() {
 	
     }
-
+    //Test CommitGGG
     public boolean register(String[] userInfo) {
         
         try {
